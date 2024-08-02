@@ -49,14 +49,13 @@ public class LivroService {
 		return lista;
 	}
 
-	public String delete( long id) {
-		List<LivroEntity> lista = this.findAll();
-		
-		for(int i= 0; i< lista.size();i++) {
-			if(lista.get(i).getId()== id) {
-				return lista.get(i).getTitulo()+ " deletado com sucesso";
-			}
-		}
-		return "livro nao encontrado";
-	}
+	 public String delete(long id) {
+	        for (int i = 0; i < lista.size(); i++) {
+	            if (lista.get(i).getId() == id) {
+	                lista.remove(i);
+	                return "Livro deletado com sucesso";
+	            }
+	        }
+	        return "Livro não encontrado";
+	    }
 }
