@@ -9,46 +9,51 @@ import app.entity.EditoraEntity;
 
 @Service
 public class EditoraService {
-	private static List<EditoraEntity> lista = new ArrayList<>();
 
-	static {
-		lista.add(new EditoraEntity("Editora A", "Rua A, 123"));
-		lista.add(new EditoraEntity("Editora B", "Avenida B, 456"));
-		lista.add(new EditoraEntity("Editora C", "Travessa C, 789"));
-	}
+    private static List<EditoraEntity> lista = new ArrayList<>();
 
-	public String save(EditoraEntity editoraEntity) {
-		lista.add(editoraEntity);
-		return "Editora cadastrada com sucesso";
-	}
+    static {
+        lista.add(new EditoraEntity(1, "Editora Abril", "São Paulo"));
+        lista.add(new EditoraEntity(2, "Editora Globo", "Rio de Janeiro"));
+        lista.add(new EditoraEntity(3, "Editora Record", "São Paulo"));
+        lista.add(new EditoraEntity(4, "Editora Planeta", "São Paulo"));
+    }
 
-	public String update(EditoraEntity editoraEntity, int index) {
-		if (index >= 0 && index < lista.size()) {
-			lista.set(index, editoraEntity);
-			return "Editora atualizada com sucesso";
-		} else {
-			return "Editora não encontrada";
-		}
-	}
+    public String save(EditoraEntity editoraEntity) {
+        lista.add(editoraEntity);
+        return "Editora cadastrada com sucesso";
+    }
 
-	public EditoraEntity findById(int index) {
-		if (index >= 0 && index < lista.size()) {
-			return lista.get(index);
-		} else {
-			return null;
-		}
-	}
+    public String update(EditoraEntity editoraEntity, long id) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getId() == id) {
+                lista.set(i, editoraEntity);
+                return "Editora atualizada com sucesso";
+            }
+        }
+        return "Editora noo encontrada";
+    }
 
-	public List<EditoraEntity> findAll() {
-		return new ArrayList<>(lista);
-	}
+    public EditoraEntity findById(long id) {
+        for (EditoraEntity editora : lista) {
+            if (editora.getId() == id) {
+                return editora;
+            }
+        }
+        return null;
+    }
 
-	public String delete(int index) {
-		if (index >= 0 && index < lista.size()) {
-			EditoraEntity editora = lista.remove(index);
-			return editora.getNome() + " deletada com sucesso";
-		} else {
-			return "Editora não encontrada";
-		}
-	}
+    public List<EditoraEntity> findAll() {
+        return new ArrayList<>(lista);
+    }
+
+    public String delete(long id) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getId() == id) {
+                lista.remove(i);
+                return "Editora deletada com sucesso";
+            }
+        }
+        return "Editora não encontrada";
+    }
 }

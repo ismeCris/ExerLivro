@@ -29,7 +29,7 @@ public class BibliotecaController {
 			String msn = this.bibliotecaService.save(bibliotecaEntity);
 			return new ResponseEntity<>(msn, HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<>("Deu Erro! " + e.getMessage(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("Deu Erro! " + e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
 
