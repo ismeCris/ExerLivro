@@ -3,21 +3,27 @@ package app.entity;
 import java.sql.Date;
 
 public class LivroEntity {
+	private long id;
 	private String titulo;
-	private Date ano_publi;
+	private String ano_publi;
 	private String autor;
 	
 	public LivroEntity(){
 		
 	}
-	public LivroEntity(String titulo, Date ano_publi, String autor){
-		
+	public LivroEntity(long id, String titulo, String ano_publi, String autor){
+		this.id = id;
 		this.titulo = titulo;
 		this.ano_publi = ano_publi;
 		this.autor = autor;
 	}
 	
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public String getTitulo() {
 		return titulo;
@@ -25,10 +31,10 @@ public class LivroEntity {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public Date getAno_publi() {
+	public String getAno_publi() {
 		return ano_publi;
 	}
-	public void setAno_publi(Date ano_publi) {
+	public void setAno_publi(String ano_publi) {
 		this.ano_publi = ano_publi;
 	}
 	public String getAutor() {
