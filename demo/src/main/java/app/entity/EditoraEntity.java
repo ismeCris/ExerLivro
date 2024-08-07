@@ -1,40 +1,35 @@
 package app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class EditoraEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
     private String endereco;
+    
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JsonIgnoreProperties("livro")
+    private LivroEntity livro;
 
-    public EditoraEntity() {
-    }
 
-    public EditoraEntity(long id, String nome, String endereco) {
-        this.id = id;
-        this.nome = nome;
-        this.endereco = endereco;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+   
 }

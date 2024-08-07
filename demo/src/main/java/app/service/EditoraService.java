@@ -17,10 +17,10 @@ public class EditoraService {
     private static List<EditoraEntity> lista = new ArrayList<>();
 
     static {
-        lista.add(new EditoraEntity(1, "Editora Abril", "São Paulo"));
+       /* lista.add(new EditoraEntity(1, "Editora Abril", "São Paulo"));
         lista.add(new EditoraEntity(2, "Editora Globo", "Rio de Janeiro"));
         lista.add(new EditoraEntity(3, "Editora Record", "São Paulo"));
-        lista.add(new EditoraEntity(4, "Editora Planeta", "São Paulo"));
+        lista.add(new EditoraEntity(4, "Editora Planeta", "São Paulo"));*/
     }
 
     public String save(EditoraEntity editoraEntity) {

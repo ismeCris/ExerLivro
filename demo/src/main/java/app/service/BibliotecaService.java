@@ -12,7 +12,7 @@ public class BibliotecaService {
 	private static List<BibliotecaEntity> lista = new ArrayList<>();
 
 	static {
-		lista.add(new BibliotecaEntity("Rua da Paz, 789", "3456-7890"));
+		//lista.add(new BibliotecaEntity("Rua da Paz, 789", "3456-7890"));
 	}
 
 	public String save(BibliotecaEntity bibliotecaEntity) {
